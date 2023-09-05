@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+
+{% block corpo %}
+    {% if session.logado %}
+        <form action="" method="post" class="ins-entrada">
+            <dl>
+                <dt>Título:
+                    <dd><input type="text" size="30" name="titulo">
+                <dt>Texto:
+                <dd><textarea rows="5" cols="40" name="texto"></textarea>
+                <dd><input type="submit" value="Publicar">
+            </dl>
+        </form>
+    {% endif %}
+                                                                            
+    <ul class="entradas">
+        {% for entrada in entradas %}
+        <li>
+            <h2>{{ entrada.titulo }}</h2>
+            {{ entrada.texto|safe }}
+        </li>
+        {% else %}
+            <li><em>Inacreditável. Até agora nenhuma entrada.</em></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

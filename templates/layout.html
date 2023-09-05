@@ -1,0 +1,26 @@
+<!doctype html5>
+<html>
+    <head>
+        <title>Flaskr</title>
+    </head>
+    <body>
+        <div class="pagina">
+            <h1>Flaskr</h1>
+  
+            <div class="metanav">
+                {% if not session.logado %}
+                    <a href="">login</a>
+                {% else %}
+                    <a href="">logout</a>
+                {% endif %}
+            </div>
+                
+            {% for mensagem in get_flashed_messages() %}
+                <div class="flash">{{ mensagem }}</div>
+            {% endfor %}
+
+            {% block corpo %}
+            {% endblock %}
+        </div>
+    </body>
+</html>
