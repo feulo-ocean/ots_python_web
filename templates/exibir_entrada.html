@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block corpo %}
+<div class="entradas">
+    <h2>{{entrada.titulo}}</h2>
+    {{ entrada.texto |safe}}
+</div>
+
+{% endblock %}
